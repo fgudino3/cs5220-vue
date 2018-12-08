@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     addEntry () {
-      this.$store.commit('addEntry', {
+      this.$store.dispatch('addEntry', {
         name: this.name,
         message: this.message
       })

@@ -8,22 +8,27 @@ export default new Vuex.Store({
   state: {
     entries: []
   },
+  // change the state of the app (must be synchronous)
   mutations: {
-    setEntries (state, entries) {
+    SET_ENTRIES (state, entries) {
       state.entries = entries
     },
-    addEntry (state, entry) {
-      GuestbookService.addEntry(entry)
-        .then(res => {
-          state.entries.push(res.data)
-        })
+    ADD_ENTRY (state, entry) {
+      state.entries.push(entry)
     }
   },
+  // asynchronous operations (Such as API calls)
   actions: {
     loadEntries ({ commit }) {
       GuestbookService.getEntries()
         .then(res => {
-          commit('setEntries', res.data)
+          commit('SET_ENTRIES', res.data)
+        })
+    },
+    addEntry ({ commit }, entry) {
+      GuestbookService.addEntry(entry)
+        .then(res => {
+          commit('ADD_ENTRY', res.data)
         })
     }
   }
