@@ -31,5 +31,10 @@ export default new Vuex.Store({
           commit('ADD_ENTRY', res.data)
         })
     }
+  },
+  getters: {
+    posterCount: state => name => {
+      return state.entries.filter(entry => entry.name === name).length
+    }
   }
 })
