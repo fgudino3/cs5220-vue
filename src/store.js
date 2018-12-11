@@ -15,6 +15,9 @@ export default new Vuex.Store({
     },
     ADD_ENTRY (state, entry) {
       state.entries.push(entry)
+    },
+    EDIT_ENTRY (state, entry) {
+      state.entries[entry.id] = entry
     }
   },
   // asynchronous operations (Such as API calls)
@@ -29,6 +32,12 @@ export default new Vuex.Store({
       GuestbookService.addEntry(entry)
         .then(res => {
           commit('ADD_ENTRY', res.data)
+        })
+    },
+    editEntry ({ commit }, entry) {
+      GuestbookService.editEntry(entry)
+        .then(res => {
+          commit('EDIT_ENTRY', res.data)
         })
     }
   },

@@ -10,7 +10,7 @@ Vue.filter('formatDate', value => {
     return moment(String(value)).format('MM/DD/YYYY hh:mm')
   }
 })
-
+Vue.use(router)
 Vue.config.productionTip = false
 
 new Vue({

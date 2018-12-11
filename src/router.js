@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import GuestBook from './views/GuestBook.vue'
+import EditEntry from './views/EditEntry.vue'
 
 Vue.use(Router)
 
@@ -18,11 +19,18 @@ export default new Router({
       component: GuestBook
     },
     {
+      path: '/edit/:id/:name/:message',
+      name: 'EditEntry',
+      component: EditEntry
+    },
+    {
+      path: '/edit',
+      name: 'EditEntry',
+      component: EditEntry
+    },
+    {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     }
   ]
