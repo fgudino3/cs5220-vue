@@ -13,7 +13,7 @@
           <router-link :to="'/edit/' + props.index + '/' + props.item.name +'/' + props.item.message">Edit URL</router-link> | 
           <router-link :to="{ name: 'EditEntry', params: { id: props.index, name: props.item.name, message: props.item.message }}">Edit Params</router-link> | 
           <router-link :to="{ path: 'edit', query: { id: props.index, name: props.item.name, message: props.item.message }}">Edit Quary</router-link> | 
-          <a @click="editEntryData(props.index, props.item.name, props.item.message)">Edit Pass Data</a>
+          <a @click="editEntryData(props.index, props.item.name, props.item.message)">Edit Programmatically</a>
         </td>
       </template>{
     </v-data-table>
